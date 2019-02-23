@@ -1,0 +1,32 @@
+<h2>{{authors.length}} Author Count</h2>
+<ul>
+  <li *ngFor="let author of authors">
+    {{author}}
+  </li>
+</ul>
+
+<div (click)="onDivClicked()">
+  Testing
+  <img src="https://picsum.photos/300/300" (click)="onclick($event)">
+</div>
+<div>
+
+  <!--Event binding with event filtering example-->
+  <input type="text" name="name1" value="" placeholder="name" (keyup.enter)="onKeyUp()" />
+  <br>
+  <!--template variables-->
+  <input type="text" #name name="name2" value="" placeholder="name" (keyup.enter)="logValue(name.value)" />
+  <br>
+
+  <!--One way Data binding (Component to View)-->
+  <input type="text" [value]= "email" name="name3" value="" placeholder="name" (keyup.enter)="oneWayBinding()" />
+  <br>
+
+  <!--two way Data binding 1 (Component <-> View)-->
+  <input type="text" [value]= "email" name="name3" value="" placeholder="name" (keyup.enter)="email = $event.target.value; twoWayBinding()" />
+  <br>
+
+  <!--two way Data binding 1 (Component <-> View)-->
+  <input type="text" [(ngModel)]= "email" name="name3" value="" placeholder="name" (keyup.enter)="twoWayBinding()" />
+  <br>
+</div>
